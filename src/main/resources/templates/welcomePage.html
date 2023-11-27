@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    
+<head>
+    <meta charset="UTF-8">
+<title>welcome to user page</title> 
+</head>
+    <body>
+    <h1>Welcome to User List Page</h1>
+    <table border="">
+		<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Age</th>
+		</tr>
+		</thead><br>
+		<tbody>	
+		<tr th:each="user : ${userList}">
+			 <tr th:each="user : ${userList}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.email}"></td>
+                <td th:text="${user.age}"></td>
+                <td>
+                    <a th:href="@{'/editUsers/' + ${user.id}}">Edit</a>
+                    <a th:href="@{'/deleteUser/' + ${user.id}}" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+                <br>
+            </tr>
+			
+		</tr>
+		</tbody>
+	</th:table>
+    <p>Do you want to add the user  <a href="/userpage">Click here</a></p>
+</body>
+</html>

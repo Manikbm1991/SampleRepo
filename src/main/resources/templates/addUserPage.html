@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add User</title>
+</head>
+<body>
+
+    <h1>Add User</h1>
+
+    <!-- Thymeleaf form with dynamic action and method -->
+    <form th:action="@{/addUser}" th:object="${userInfo}" method="post">
+
+        <!-- Input fields for user details -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" th:field="*{name}" required>
+
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" th:field="*{email}" required>
+
+        <br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" th:field="*{age}" required>
+
+        <br>
+
+        <!-- Submit button -->
+        <button type="submit">Add User</button>
+
+    </form>
+
+</body>
+</html>
